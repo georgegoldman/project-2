@@ -9,7 +9,7 @@
   >
     <v-btn color="indigo" text large to="/">E-verify</v-btn>
     <v-spacer></v-spacer>
-    <v-btn icon color="teal lighten-1">
+    <v-btn icon color="teal lighten-1" to="/wallet">
       <v-icon>account_balance_wallet</v-icon>
     </v-btn>
     <v-btn icon color="blue darken-1">

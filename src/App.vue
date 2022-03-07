@@ -1,11 +1,7 @@
 <template>
   <v-app>
     <AppBar />
-    <v-sheet
-      id="scrolling-techniques-7"
-      class="overflow-y-auto"
-      min-height="600"
-    >
+    <v-sheet id="scrolling-techniques-7" class="overflow-y-auto">
       <div class="container">
         <div class="row">
           <div class="col py-5 mt-5">
