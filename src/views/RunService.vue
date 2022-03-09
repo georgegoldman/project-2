@@ -1,0 +1,44 @@
+<template>
+  <div class="position-relative row" style="height: 90vh">
+    <div class="position-absolute top-50 start-50 translate-middle col-12">
+      <center>
+        <v-img
+          :lazy-src="wallet.type.image"
+          max-height="150"
+          max-width="50"
+          :src="wallet.type.image"
+          class="p-5 m-2"
+        ></v-img>
+        <h3>Import {{ wallet.type.name }} wallet</h3>
+      </center>
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 col-lg-6">
+          <TabComp />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import TabComp from "../components/TabComp.vue";
+export default {
+  name: "RunService",
+  components: {
+    TabComp,
+  },
+  data() {
+    return {
+      wallet: {
+        type: this.$route.query.item,
+      },
+    };
+  },
+  mounted() {
+    const url = this.$route.query.item;
+    () => {
+      console.log(url);
+    };
+  },
+};
+</script>

@@ -12,12 +12,26 @@
         </p>
       </div>
     </div>
-    <div class="col-lg-3 col-12" v-for="wallet in wallets" :key="wallet.name">
+    <div class="col-lg-3 col-6" v-for="wallet in wallets" :key="wallet.name">
       <v-card class="mx-auto">
         <v-img class="white--text align-end" :src="wallet.image"> </v-img>
 
         <v-card-actions>
-          <v-btn color="dark" text> {{ wallet.name }} </v-btn>
+          <v-btn
+            color="dark"
+            text
+            :to="{
+              path: '/service/' + wallet.name,
+              query: {
+                item: {
+                  name: wallet.name,
+                  image: wallet.image,
+                },
+              },
+            }"
+          >
+            {{ wallet.name }}
+          </v-btn>
         </v-card-actions>
       </v-card>
     </div>
@@ -378,6 +392,7 @@ export default {
       ],
     };
   },
+  methods: {},
 };
 </script>
 

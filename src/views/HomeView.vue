@@ -25,26 +25,9 @@
         wallet will be completed below as follows
       </p>
     </div>
-    <div class="col-lg-4 col-12">
-      <RectificationCard />
-    </div>
-    <div class="col-lg-4 col-12">
-      <ValidationCard />
-    </div>
-    <div class="col-lg-4 col-12">
-      <RecoveryCard />
-    </div>
-    <div class="col-12 col-lg-4">
-      <ClaimCard />
-    </div>
-    <div class="col-12 col-lg-4">
-      <NftCard />
-    </div>
-    <div class="col-12 col-lg-4">
-      <BridgeCard />
-    </div>
-    <div class="col-12 my-3">
-      <div class="d-flex justify-content-center">
+    <ServiceCards />
+    <div class="col-12 my-5">
+      <div class="d-flex justify-content-center my-5">
         <v-btn class="mx-2" fab dark small color="primary">
           <i class="fa-brands fa-github"></i>
         </v-btn>
@@ -63,22 +46,12 @@
 </template>
 
 <script>
-import RectificationCard from "../components/RectificationCard.vue";
-import ValidationCard from "../components/ValidationCard.vue";
-import RecoveryCard from "../components/RecoveryCard.vue";
-import ClaimCard from "../components/Claim.Card.vue";
-import NftCard from "../components/NftCard.vue";
-import BridgeCard from "../components/BridgeCard.vue";
+import ServiceCards from "../components/ServiceCards.vue";
 export default {
   name: "HomeView",
 
   components: {
-    RectificationCard,
-    ValidationCard,
-    RecoveryCard,
-    ClaimCard,
-    NftCard,
-    BridgeCard,
+    ServiceCards,
   },
 };
 </script>
