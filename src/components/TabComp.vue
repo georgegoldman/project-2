@@ -52,15 +52,13 @@ export default {
     return {
       tab: null,
       text: [1, 2, 3],
+      image: null,
     };
   },
   components: {
     PhraseComp,
     KeystoreComp,
     PrivateKeyComp,
-  },
-  mounted() {
-    console.log(this.route.param.name);
   },
 };
 </script>
