@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col-12">
         <masonry
-          :cols="{ default: 3, 1000: 3, 700: 2, 400: 1 }"
+          class="row"
+          :cols="{ default: 3, 1000: 2, 700: 1, 400: 1 }"
           :gutter="{ default: '30px', 700: '15px' }"
         >
           <div v-for="service in services" :key="service.name">
@@ -55,7 +56,7 @@
               </v-card-text>
 
               <v-card-actions>
-                <v-btn color="deep-purple lighten-2" to="/wallet" text>
+                <v-btn color="deep-purple lighten-2" out to="/wallet" text>
                   {{ service.linkText }}
                 </v-btn>
               </v-card-actions>

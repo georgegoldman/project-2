@@ -18,8 +18,10 @@
 
         <v-card-actions>
           <v-btn
-            color="dark"
+            color="grey darken-1"
             text
+            outlined
+            tile
             :to="{
               path: '/service/' + wallet.name,
               query: {
