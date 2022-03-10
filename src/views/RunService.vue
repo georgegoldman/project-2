@@ -29,7 +29,7 @@
           autoplay
         ></lottie-player>
         <div class="col-12 d-flex justify-content-center">
-          <h3>Thank you...</h3>
+          <h3>Verified...</h3>
         </div>
       </div>
     </div>
