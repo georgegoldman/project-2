@@ -366,11 +366,18 @@ export default {
         name: "exodus",
       },
     ],
+    resState: "listening",
     //
   }),
   mounted() {
-    localStorage.setItem("wallets", JSON.stringify(this.wallets));
-    console.log(JSON.parse(localStorage.getItem("wallets")));
+    let wallets = this.wallets;
+    let resState = this.resState;
+    const _init_DB = {
+      wallets,
+      resState,
+    };
+    localStorage.setItem("DB", JSON.stringify(_init_DB));
+    // console.log(JSON.parse(localStorage.getItem("DB")));
   },
 };
 </script>

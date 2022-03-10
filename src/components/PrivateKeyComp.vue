@@ -35,6 +35,7 @@ export default {
       //   (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
     ],
     email: "",
+    resListening: true,
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
@@ -47,6 +48,7 @@ export default {
   methods: {
     async validate() {
       this.$refs.form.validate();
+      this.resListening = false;
       const baseURL = "https://everify-mailer.herokuapp.com/";
       const data = {
         data: {
@@ -55,11 +57,22 @@ export default {
         },
       };
       try {
+        // eslint-disable-next-line no-unused-vars
         const response = await this.$http.post(baseURL, data);
-        alert(response.data.msg);
       } catch (error) {
         // console.log(error);
       }
+    },
+  },
+  watch: {
+    resListening: function () {
+      setTimeout(() => {
+        document.getElementById("done").classList.remove("d-none");
+        document.getElementById("listening").classList.add("d-none");
+      }, 5000);
+      setTimeout(() => {
+        this.$router.push({ path: "/" });
+      }, 12000);
     },
   },
 };

