@@ -19,6 +19,7 @@
       class="px-4 col-12 col-lg-4"
       @click="validate"
     >
+      IMPORT
     </v-btn>
   </v-form>
 </template>
