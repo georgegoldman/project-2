@@ -1,5 +1,5 @@
 <template>
-  <div class="row my-5 py-5">
+  <div class="row py-3">
     <div class="col-12 col-lg-5 pt-5 mt-5 text-center">
       <h1 class="mt-lg-5 pt-lg-5">
         Decentralized Wallet <br />
@@ -9,14 +9,14 @@
     <div class="mt-3 col-12 col-lg-7">
       <img
         :src="'../img/undraw_crypto_portfolio_2jy5.svg'"
-        class="col-12"
+        class="col-12 col-lg-8"
         alt=""
       />
     </div>
-    <div class="col-12 d-flex justify-content-center py-5 mt-5">
+    <div class="col-12 d-flex justify-content-center py-3">
       <h1>Our Services</h1>
     </div>
-    <div class="col-12 d-flex justify-content-center py-5 mb-3">
+    <div class="col-12 d-flex justify-content-center py-5">
       <p>
         Dapps Sync is a decentralized web3 application. DApps Sync create an
         innovative open-source software ecosystem that is both secure and

